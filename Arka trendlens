@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViralScript AI | Global Creator Tool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: white; }
+        .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        .gradient-text { background: linear-gradient(90deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <div class="max-w-4xl mx-auto text-center mb-10">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 gradient-text">ViralScript AI</h1>
+        <p class="text-slate-400 text-lg">Stop guessing. Create hooks that capture the world.</p>
+        
+        <div class="mt-6 p-2 border border-dashed border-slate-700 text-xs text-slate-500 rounded">
+            ADVERTISEMENT SPACE (Google AdSense)
+        </div>
+    </div>
+
+    <main class="max-w-4xl mx-auto grid gap-8">
+        
+        <section class="glass p-6 rounded-2xl shadow-xl">
+            <h2 class="text-xl font-semibold mb-4"><i class="fas fa-magic mr-2 text-sky-400"></i> Generate High-Retention Hooks</h2>
+            <div class="flex flex-col gap-4">
+                <input id="topicInput" type="text" placeholder="Enter your video topic (e.g. Minecraft, Finance, Life Hacks)..." 
+                       class="w-full bg-slate-800 border border-slate-700 p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 transition">
+                
+                <div class="flex gap-2">
+                    <select id="toneSelect" class="bg-slate-800 border border-slate-700 p-4 rounded-lg flex-1 outline-none">
+                        <option value="curiosity">Curiosity (Wait for it...)</option>
+                        <option value="fear">Urgency (Stop doing this!)</option>
+                        <option value="value">High Value (How to get...)</option>
+                    </select>
+                    <button onclick="generateHooks()" class="bg-sky-500 hover:bg-sky-600 px-8 py-4 rounded-lg font-bold transition flex items-center gap-2">
+                        <span>Generate</span> <i class="fas fa-bolt"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="resultSection" class="hidden glass p-6 rounded-2xl">
+            <h2 class="text-lg font-semibold mb-4 text-sky-400">Your Viral Hooks:</h2>
+            <div id="hookList" class="space-y-3">
+                </div>
+        </section>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <section class="glass p-6 rounded-2xl">
+                <h2 class="text-lg font-semibold mb-4"><i class="fas fa-edit mr-2 text-sky-400"></i> Script Scratchpad</h2>
+                <textarea id="scratchpad" class="w-full h-48 bg-slate-800/50 p-4 rounded-lg text-sm border border-slate-700 focus:outline-none" placeholder="Draft your script here... (Auto-saves)"></textarea>
+            </section>
+
+            <section class="glass p-6 rounded-2xl">
+                <h2 class="text-lg font-semibold mb-4"><i class="fas fa-check-circle mr-2 text-green-400"></i> Viral Checklist</h2>
+                <div class="space-y-2 text-sm text-slate-300">
+                    <label class="flex items-center gap-3 bg-slate-800/40 p-2 rounded cursor-pointer hover:bg-slate-800 transition">
+                        <input type="checkbox" class="accent-sky-500"> Hook in first 3 seconds?
+
+</label>
+                    <label class="flex items-center gap-3 bg-slate-800/40 p-2 rounded cursor-pointer hover:bg-slate-800 transition">
+                        <input type="checkbox" class="accent-sky-500"> Subtitles/Captions ready?
+                    </label>
+                    <label class="flex items-center gap-3 bg-slate-800/40 p-2 rounded cursor-pointer hover:bg-slate-800 transition">
+                        <input type="checkbox" class="accent-sky-500"> High-quality lighting/audio?
+                    </label>
+                    <label class="flex items-center gap-3 bg-slate-800/40 p-2 rounded cursor-pointer hover:bg-slate-800 transition">
+                        <input type="checkbox" class="accent-sky-500"> Call to Action (CTA) included?
+                    </label>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="max-w-4xl mx-auto mt-20 text-center text-slate-500 text-sm border-t border-slate-800 pt-6">
+        <p>&copy; 2026 ViralScript AI - The Global Creator Toolkit</p>
+    </footer>
+
+    <script>
+        // Auto-save Scratchpad feature (Daily Utility)
+        const pad = document.getElementById('scratchpad');
+        pad.value = localStorage.getItem('userScript') || '';
+        pad.addEventListener('input', () => {
+            localStorage.setItem('userScript', pad.value);
+        });
+
+        function generateHooks() {
+            const topic = document.getElementById('topicInput').value;
+            const tone = document.getElementById('toneSelect').value;
+            const list = document.getElementById('hookList');
+            const section = document.getElementById('resultSection');
+
+            if(!topic) return alert("Please enter a topic!");
+
+            section.classList.remove('hidden');
+            list.innerHTML = <div class="animate-pulse text-slate-500">Analyzing global trends...</div>;
+
+            // Professional Hook Logic Simulation
+            setTimeout(() => {
+                let hooks = [];
+                if(tone === 'curiosity') {
+                    hooks = [
+                        This simple ${topic} trick is changing everything.,
+                        I tried the viral ${topic} method so you don't have to.,
+                        The secret to ${topic} that no one is telling you.
+                    ];
+                } else if(tone === 'fear') {
+                    hooks = [
+                        Stop doing this if you want to succeed in ${topic}!,
+                        Your ${topic} is failing because of this one mistake.,
+                        The scary truth about ${topic} in 2026.
+                    ];
+                } else {
+                    hooks = [
+                        How to master ${topic} in 60 seconds.,
+                        3 ${topic} tips I wish I knew sooner.,
+                        The ultimate guide to ${topic} for beginners.
+                    ];
+                }
+
+                list.innerHTML = hooks.map(h => 
+                    <div class="group flex justify-between items-center bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-sky-500 transition cursor-pointer" onclick="copyHook('${h}')">
+                        <span>${h}</span>
+                        <i class="far fa-copy text-slate-500 group-hover:text-sky-400"></i>
+                    </div>
+                ).join('');
+            }, 800);
+        }
+
+        function copyHook(text) {
+            navigator.clipboard.writeText(text);
+            alert("Hook copied to clipboard!");
+        }
+    </script>
+</body>
+</html>
